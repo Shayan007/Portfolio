@@ -1,327 +1,1015 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Shayan Shafique | Product Manager Portfolio</title>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>Shayan Shafique | AI & Data Product Manager Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            glow: '#a78bfa',
+                            teal: '#14b8a6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --primary: #1e3a8a;
-            --secondary: #0d9488;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --border: #e2e8f0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        header {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        .header-content h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
+        ::-webkit-scrollbar-track {
+            background: #1e1e24;
         }
-
-        .header-content h2 {
-            font-size: 1.5rem;
-            color: #22d3ee;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
         }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .contact-links a:hover {
-            color: #22d3ee;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
-
-        section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2.5rem;
-        }
-
-        h2.section-title {
-            font-size: 1.75rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .summary-text {
-            font-size: 1.1rem;
-            color: #334155;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category h3 {
-            font-size: 1.1rem;
-            color: var(--dark);
-            margin-bottom: 0.75rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background-color: #f1f5f9;
-            color: #475569;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            background: #fff;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .project-card p {
-            color: #475569;
-            font-size: 0.95rem;
-        }
-
-        .timeline-item {
-            margin-bottom: 2rem;
-            position: relative;
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--border);
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin-bottom: 0.5rem;
-        }
-
-        .role-title {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--dark);
-        }
-
-        .company-name {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        .job-meta {
-            font-size: 0.875rem;
-            color: var(--gray);
-            text-align: right;
-        }
-
-        .timeline-item ul {
-            list-style-type: none;
-        }
-
-        .timeline-item li {
-            position: relative;
-            padding-left: 1.25rem;
-            margin-bottom: 0.4rem;
-            color: #334155;
-            font-size: 0.95rem;
-        }
-
-        .timeline-item li::before {
-            content: "•";
-            color: var(--secondary);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .edu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .edu-card {
-            background: #f8fafc;
-            padding: 1.25rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .edu-card h3 {
-            font-size: 1.05rem;
-            color: var(--dark);
-        }
-
-        .edu-card p {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-top: 0.25rem;
-        }
-
-        .cert-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .cert-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            color: #334155;
-        }
-
-        .cert-item i {
-            color: var(--secondary);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            header { padding: 3rem 1rem; }
-            .header-content h1 { font-size: 2.2rem; }
-            section { padding: 1.5rem; }
-            .job-meta { text-align: left; margin-top: 0.25rem; width: 100%; }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 dark:bg-slate-900 dark:text-slate-100 min-h-screen selection:bg-brand-500 selection:text-white">
 
-    <header>
-        <div class="header-content">
-            <h1>Md Shayan Shafique</h1>
-            <h2>Associate Product Manager (AI/Data Products)</h2>
-            <div class="contact-links">
-                <a href="mailto:shafiqueshayan@gmail.com"><i class="fas fa-envelope"></i> shafiqueshayan@gmail.com</a>
-                <a href="tel:+918981137839"><i class="fas fa-phone"></i> +91 8981137839</a>
-                <a href="#"><i class="fas fa-map-marker-alt"></i> Bengaluru, India</a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <!-- NAVIGATION HEADER -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Title -->
+                <div class="flex items-center space-x-2">
+                    <span class="text-xl font-extrabold bg-gradient-to-r from-brand-500 to-accent-teal bg-clip-text text-transparent">
+                        SHAYAN SHAFIQUE
+                    </span>
+                    <span class="hidden sm:inline-block px-2.5 py-0.5 text-xs font-semibold bg-slate-800 text-accent-teal rounded-full border border-slate-700">
+                        AI PM Portfolio
+                    </span>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Case Studies</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Experience</a>
+                    <a href="#ai-assistant" class="text-sm font-medium text-accent-teal hover:text-emerald-400 transition-colors flex items-center gap-1">
+                        <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Ask My AI
+                    </a>
+                    <a href="#contact" class="px-4 py-2 text-xs font-bold uppercase tracking-wider bg-brand-600 hover:bg-brand-700 text-white rounded-lg transition-all shadow-md shadow-brand-500/20">
+                        Contact
+                    </a>
+                </div>
+
+                <!-- Theme Toggle & Mobile Menu Btn -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-800 border border-slate-700 hover:border-brand-500 text-slate-300 transition-all focus:outline-none">
+                        <!-- Sun Icon (visible in dark) -->
+                        <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        <!-- Moon Icon (visible in light) -->
+                        <svg id="theme-toggle-dark-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    </button>
+                    
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#about" class="block py-2 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">About</a>
+            <a href="#skills" class="block py-2 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Skills</a>
+            <a href="#projects" class="block py-2 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Case Studies</a>
+            <a href="#experience" class="block py-2 px-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">Experience</a>
+            <a href="#ai-assistant" class="block py-2 px-3 rounded-lg text-accent-teal hover:bg-slate-800 font-semibold">Ask My AI</a>
+            <a href="#contact" class="block py-2 px-3 rounded-lg bg-brand-600 text-white text-center font-bold">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="about" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-slate-950 to-slate-950">
+        <!-- Grid/Tech Background Decoration -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Info -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-500/10 border border-brand-500/30 px-3 py-1.5 rounded-full text-brand-300 text-xs md:text-sm font-semibold tracking-wide uppercase">
+                        <span>🚀 Business Analyst to AI Product Manager</span>
+                        <span class="w-1.5 h-1.5 bg-accent-teal rounded-full animate-ping"></span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+                        Shipping Intelligent Products backed by <span class="bg-gradient-to-r from-brand-400 via-brand-500 to-accent-teal bg-clip-text text-transparent">Analytical Rigor</span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Hi, I'm <strong class="font-semibold text-white">Shayan</strong>. A Business Analyst with 8 years of cross-domain experience (BFSI, CRM, Wealth Mgmt) and custom AI product builds. I specialize in turning high-level product strategies and complex data capabilities into functional, scalable specs.
+                    </p>
+
+                    <!-- Core Value Props Pills -->
+                    <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-2">
+                        <span class="px-3 py-1 bg-slate-800/80 border border-slate-700 text-slate-300 text-xs rounded-full">📊 Data Science Postgrad</span>
+                        <span class="px-3 py-1 bg-slate-800/80 border border-slate-700 text-slate-300 text-xs rounded-full">⚙️ D365 & Power Platform</span>
+                        <span class="px-3 py-1 bg-slate-800/80 border border-slate-700 text-slate-300 text-xs rounded-full">🧠 AI-First Product Strategy</span>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects" class="w-full sm:w-auto text-center px-6 py-3 bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 text-white font-semibold rounded-xl shadow-lg shadow-brand-500/20 transition-all transform hover:-translate-y-0.5">
+                            Explore Case Studies
+                        </a>
+                        <a href="#ai-assistant" class="w-full sm:w-auto text-center px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-accent-teal font-semibold rounded-xl transition-all flex items-center justify-center gap-2">
+                            <span class="relative flex h-2 w-2">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-teal opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-teal"></span>
+                            </span>
+                            Test AI Assistant
+                        </a>
+                        <a href="#contact" class="text-slate-300 hover:text-white transition-colors text-sm font-semibold flex items-center gap-1.5 py-2">
+                            Get in Touch <span class="text-lg">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Bar / Quick Contact -->
+                    <div class="pt-8 border-t border-slate-800/60 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-slate-400">
+                        <div>
+                            <span class="block text-slate-500 uppercase tracking-wider font-semibold mb-1">Email</span>
+                            <a href="mailto:shafiqueshayan@gmail.com" class="hover:text-accent-teal text-slate-300 transition-colors">shafiqueshayan@gmail.com</a>
+                        </div>
+                        <div>
+                            <span class="block text-slate-500 uppercase tracking-wider font-semibold mb-1">Location</span>
+                            <span class="text-slate-300">Bengaluru, India</span>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <span class="block text-slate-500 uppercase tracking-wider font-semibold mb-1">Phone</span>
+                            <a href="tel:+918981137839" class="hover:text-accent-teal text-slate-300 transition-colors">+91 8981137839</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Mockup Visual or Dynamic Metrics Widget -->
+                <div class="lg:col-span-5 relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-600/20 to-accent-teal/20 blur-3xl rounded-full transform -rotate-12 scale-90"></div>
+                    
+                    <!-- Quick Specs Card -->
+                    <div class="relative bg-slate-850/90 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-sm">
+                        <!-- Card Header mock window -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            </div>
+                            <span class="text-xs text-slate-500 font-mono">shayan_shafique_profile.json</span>
+                        </div>
+
+                        <!-- JSON / Bio Display -->
+                        <div class="space-y-4 font-mono text-sm">
+                            <p class="text-brand-300"><span class="text-slate-500">const</span> candidate = {</p>
+                            <div class="pl-4 space-y-1 text-slate-300">
+                                <p><span class="text-amber-300">name</span>: <span class="text-emerald-400">"MD Shayan Shafique"</span>,</p>
+                                <p><span class="text-amber-300">experience</span>: <span class="text-indigo-400">"8 Years (BFSI, CRM, AI)"</span>,</p>
+                                <p><span class="text-amber-300">latest_consulting</span>: <span class="text-emerald-400">"EY India (Dynamics 365)"</span>,</p>
+                                <p><span class="text-amber-300">specialty</span>: <span class="text-amber-200">["PRDs", "AI Workflows", "Data Models"]</span>,</p>
+                                <p><span class="text-amber-300">active_priority</span>: <span class="text-emerald-400">"Associate PM (AI/Data Products)"</span></p>
+                            </div>
+                            <p class="text-brand-300">};</p>
+                        </div>
+
+                        <!-- Core Impact Metrics inside the card -->
+                        <div class="mt-6 pt-6 border-t border-slate-800 grid grid-cols-2 gap-4">
+                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                                <span class="block text-2xl font-bold text-accent-teal">8+ Yrs</span>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider">Cross-Domain BA Rigor</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                                <span class="block text-2xl font-bold text-brand-400">-30%</span>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider">Reporting TAT Saved</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                                <span class="block text-2xl font-bold text-indigo-400">1st</span>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider">Capstone Rank (ML defense)</span>
+                            </div>
+                            <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800">
+                                <span class="block text-2xl font-bold text-amber-400">CRM</span>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider">Dynamics 365 & Power Plat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
 
-    <main>
-        <section id="summary">
-            <h2 class="section-title"><i class="fas fa-user"></i> Professional Summary</h2>
-            <p class="summary-text">
-                Business Analyst with 8 years of cross-domain experience (BFSI, CRM consulting, wealth management, data science) and 2-3 years in functional/product-style delivery within enterprise Microsoft Dynamics 365 CRM and Power Platform environments. Track record translating ambiguous business problems into clear requirements, user stories, and prioritized enhancement backlogs while partnering with engineering, sales, and service stakeholders to ship validated solutions. Backed by a Data Science postgraduate program and self-driven AI product builds - seeking a transition into Associate/AI Product Management roles where BA rigor and applied AI fluency compound.
-            </p>
-        </section>
+    <!-- INTERACTIVE SKILLS HUB -->
+    <section id="skills" class="py-20 bg-slate-950 border-t border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold sm:text-4xl text-white">
+                    The PM & AI <span class="bg-gradient-to-r from-brand-400 to-accent-teal bg-clip-text text-transparent">Skill Taxonomy</span>
+                </h2>
+                <p class="mt-4 text-slate-400">
+                    A combination of enterprise-grade business analysis skills, machine learning foundations, and modern product methodologies.
+                </p>
+            </div>
 
-        <section id="skills">
-            <h2 class="section-title"><i class="fas fa-tools"></i> Core Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Product Management</h3>
-                    <div class="skill-tags">
-                        <span class="tag">PRD & FRD Writing</span>
-                        <span class="tag">User Story Mapping</span>
-                        <span class="tag">Backlog Prioritization</span>
-                        <span class="tag">MoSCoW / RICE</span>
-                        <span class="tag">Roadmap Planning</span>
-                        <span class="tag">Agile / Scrum</span>
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Skill Category 1: Product Management -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 hover:border-brand-500/50 transition-all hover:shadow-lg hover:shadow-brand-500/5 duration-300">
+                    <div class="w-12 h-12 bg-brand-500/10 text-brand-400 rounded-xl flex items-center justify-center mb-5 border border-brand-500/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Product Delivery</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-500 rounded-full"></span> PRD & FRD Writing</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-500 rounded-full"></span> User Story Mapping</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-500 rounded-full"></span> Backlog Prioritisation (RICE)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-500 rounded-full"></span> Roadmap Planning</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-500 rounded-full"></span> Stakeholder Alignment</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 2: AI & Data Science -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 hover:border-accent-teal/50 transition-all hover:shadow-lg hover:shadow-accent-teal/5 duration-300">
+                    <div class="w-12 h-12 bg-accent-teal/10 text-accent-teal rounded-xl flex items-center justify-center mb-5 border border-accent-teal/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">AI & Data Fluency</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-teal rounded-full"></span> Prompt Engineering</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-teal rounded-full"></span> GenAI Use-Case Design</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-teal rounded-full"></span> ML Classification Models</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-teal rounded-full"></span> SQL & Python Fundamentals</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-teal rounded-full"></span> Power BI Dashboarding</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 3: Enterprise Tech & CRM -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/50 transition-all hover:shadow-lg hover:shadow-indigo-500/5 duration-300">
+                    <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center mb-5 border border-indigo-500/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">CRM & Technical</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> MS Dynamics 365 CRM</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> MS Power Platform</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> REST/SOAP API (Postman)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> Azure DevOps / Agile boards</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> BPMN / UML Modeling</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 4: Domain Knowledge -->
+                <div class="bg-slate-900/80 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition-all hover:shadow-lg hover:shadow-amber-500/5 duration-300">
+                    <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mb-5 border border-amber-500/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">Domain Expertise</h3>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> FinTech & Retail BFSI</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Equity & Derivatives Trading</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Wealth Management</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Real Estate Investor Portfolios</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span> Financial Markets Analysis</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES & INDEPENDENT PROJECTS -->
+    <section id="projects" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold sm:text-4xl text-white">
+                    PM Portfolio <span class="bg-gradient-to-r from-brand-400 to-accent-teal bg-clip-text text-transparent">Case Studies</span>
+                </h2>
+                <p class="mt-4 text-slate-400">
+                    Real-world scenarios, UX deep dives, and data science strategies translated into structural product improvements. Click on any card to view the PM framework details.
+                </p>
+            </div>
+
+            <!-- Case Study Tabs/Explorer Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: Nykaa AI Personalization -->
+                <div class="bg-slate-850 rounded-2xl border border-slate-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 bg-brand-500/10 text-brand-300 rounded-md text-xs font-semibold">AI Strategy</span>
+                            <span class="text-xs text-slate-500 font-mono">Nykaa Beauty</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">AI-Driven Product Personalization</h3>
+                        <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+                            Designed a comprehensive machine learning and personalization model to boost product discovery, enhance tailored recommendations, and drive customer retention.
+                        </p>
+                        
+                        <!-- Mini Spec Details (Hidden by default, toggled via JS) -->
+                        <div id="spec-nykaa" class="hidden mt-4 pt-4 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+                            <p><strong>🧠 Objective:</strong> Improve Conversion Rate and average basket size.</p>
+                            <p><strong>💡 Proposed Solution:</strong> Collaborative Filtering recommendation models coupled with real-time prompt-based contextual search.</p>
+                            <p><strong>🎯 Metrics:</strong> Primary: Conversion Rate (%), Secondary: Click-Through Rate on recommendations, Average Order Value (AOV).</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="toggleSpec('nykaa')" id="btn-nykaa" class="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white font-medium text-xs rounded-xl border border-slate-700 hover:border-slate-600 transition-all flex items-center justify-center gap-1">
+                            <span>Explore PM Spec</span>
+                            <svg class="w-3.5 h-3.5 transform transition-transform" id="arrow-nykaa" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>AI & Data</h3>
-                    <div class="skill-tags">
-                        <span class="tag">AI Lifecycle Fundamentals</span>
-                        <span class="tag">Prompt Engineering</span>
-                        <span class="tag">Generative AI Use-Cases</span>
-                        <span class="tag">Classification Models</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">Power BI</span>
+
+                <!-- Project 2: Zepto Customer Segmentation -->
+                <div class="bg-slate-850 rounded-2xl border border-slate-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 bg-amber-500/10 text-amber-300 rounded-md text-xs font-semibold">User Research</span>
+                            <span class="text-xs text-slate-500 font-mono">Zepto Delivery</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">JTBD User Segmentation</h3>
+                        <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+                            Conducted targeted user research and persona synthesis for dark store instant delivery. Identified behavioral trends and opportunities to streamline user onboarding.
+                        </p>
+                        
+                        <!-- Mini Spec Details -->
+                        <div id="spec-zepto" class="hidden mt-4 pt-4 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+                            <p><strong>⚡ Frameworks:</strong> Jobs-to-be-Done (JTBD), Customer Journey Mapping, User Personas.</p>
+                            <p><strong>💡 Insights:</strong> Found significant friction in the checkout process for 'emergency' replenishment runs (e.g., missed ingredients during cooking).</p>
+                            <p><strong>🚀 Prioritized Initiative:</strong> "1-Tap Critical Addition" flow with high-impact priority (MoSCoW).</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="toggleSpec('zepto')" id="btn-zepto" class="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white font-medium text-xs rounded-xl border border-slate-700 hover:border-slate-600 transition-all flex items-center justify-center gap-1">
+                            <span>Explore PM Spec</span>
+                            <svg class="w-3.5 h-3.5 transform transition-transform" id="arrow-zepto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Technical & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Microsoft Power Platform</span>
+
+                <!-- Project 3: Uber UX Redesign -->
+                <div class="bg-slate-850 rounded-2xl border border-slate-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-300 rounded-md text-xs font-semibold">UX & Wireframes</span>
+                            <span class="text-xs text-slate-500 font-mono">Uber Ride</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Ride Completion Optimization</h3>
+                        <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+                            Analyzed drop-offs and post-ride feedback triggers. Designed mock wireframes and UX revisions aimed at friction-less checkout, tipping, and rating updates.
+                        </p>
+                        
+                        <!-- Mini Spec Details -->
+                        <div id="spec-uber" class="hidden mt-4 pt-4 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+                            <p><strong>🎯 Pain Point:</strong> Cognitive fatigue at the final stage of the trip leading to missed driver feedback.</p>
+                            <p><strong>📐 Wireframe Logic:</strong> Replaced secondary modals with high-contrast inline widgets on the core tracking map sheet.</p>
+                            <p><strong>📈 Impact:</strong> Potential 12% increase in post-trip feedback response and smoother ride termination loop.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="toggleSpec('uber')" id="btn-uber" class="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white font-medium text-xs rounded-xl border border-slate-700 hover:border-slate-600 transition-all flex items-center justify-center gap-1">
+                            <span>Explore PM Spec</span>
+                            <svg class="w-3.5 h-3.5 transform transition-transform" id="arrow-uber" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4: B2B SaaS Product Strategy -->
+                <div class="bg-slate-850 rounded-2xl border border-slate-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 bg-indigo-500/10 text-indigo-300 rounded-md text-xs font-semibold">SaaS & Automation</span>
+                            <span class="text-xs text-slate-500 font-mono">Enterprise Workflow</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Mid-Market SaaS Automation</h3>
+                        <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+                            Identified high-frequency manual operations and created an AI-enabled automated routing strategy for incoming client inquiries to drive high operational efficiencies.
+                        </p>
+                        
+                        <!-- Mini Spec Details -->
+                        <div id="spec-saas" class="hidden mt-4 pt-4 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+                            <p><strong>💼 Problem Statement:</strong> Inefficient back-office request triage leading to long turnaround times (TAT).</p>
+                            <p><strong>⚡ AI Feature:</strong> Intent classification models tagging and routing issues directly inside the CRM dashboard.</p>
+                            <p><strong>🎯 Business Case:</strong> Projected -35% labor overhead spent manually categorizing generic complaints.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="toggleSpec('saas')" id="btn-saas" class="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white font-medium text-xs rounded-xl border border-slate-700 hover:border-slate-600 transition-all flex items-center justify-center gap-1">
+                            <span>Explore PM Spec</span>
+                            <svg class="w-3.5 h-3.5 transform transition-transform" id="arrow-saas" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5: Adversarial Attack Defense (Capstone) -->
+                <div class="bg-slate-850 rounded-2xl border border-slate-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 bg-rose-500/10 text-rose-300 rounded-md text-xs font-semibold">Data Science</span>
+                            <span class="text-xs text-slate-500 font-mono">Praxis Capstone</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Adversarial ML Model Defense</h3>
+                        <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+                            Researched adversarial perturbations against deep learning image classifiers. Developed and verified a knowledge-distillation-based defense strategy.
+                        </p>
+                        
+                        <!-- Mini Spec Details -->
+                        <div id="spec-adversarial" class="hidden mt-4 pt-4 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+                            <p><strong>🏆 Recognition:</strong> Ranked First among all peer capstone project teams.</p>
+                            <p><strong>🛠️ Technology:</strong> Deep Learning, Knowledge Distillation, PyTorch/Python classifiers.</p>
+                            <p><strong>🌟 Product Implication:</strong> High-reliability guardrails for computer vision products, avoiding vulnerabilities against adversarial image manipulations.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="toggleSpec('adversarial')" id="btn-adversarial" class="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white font-medium text-xs rounded-xl border border-slate-700 hover:border-slate-600 transition-all flex items-center justify-center gap-1">
+                            <span>Explore PM Spec</span>
+                            <svg class="w-3.5 h-3.5 transform transition-transform" id="arrow-adversarial" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6: BookMyShow Redesign -->
+                <div class="bg-slate-850 rounded-2xl border border-slate-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-2.5 py-1 bg-teal-500/10 text-teal-300 rounded-md text-xs font-semibold">Conversion Rate</span>
+                            <span class="text-xs text-slate-500 font-mono">BookMyShow</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Checkout Friction Redesign</h3>
+                        <p class="text-sm text-slate-400 mb-4 line-clamp-3">
+                            Identified major usability friction points during theater seat selection and subsequent add-on steps. Drafted key enhancements to streamline transactional flows.
+                        </p>
+                        
+                        <!-- Mini Spec Details -->
+                        <div id="spec-bookmyshow" class="hidden mt-4 pt-4 border-t border-slate-800 text-xs space-y-2 text-slate-300">
+                            <p><strong>📉 Identified Drop-off:</strong> Complex upselling modules right before payment triggering transaction drop-out.</p>
+                            <p><strong>✨ Recommendation:</strong> Asynchronous or post-purchase auxiliary upsells (e.g., snacks & beverage checkout on confirmation screen).</p>
+                            <p><strong>🚀 Outcome Metric:</strong> Aspired a ~4.2% lift in completed checkout conversion rate.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="toggleSpec('bookmyshow')" id="btn-bookmyshow" class="w-full py-2.5 bg-slate-800 hover:bg-slate-750 text-slate-300 hover:text-white font-medium text-xs rounded-xl border border-slate-700 hover:border-slate-600 transition-all flex items-center justify-center gap-1">
+                            <span>Explore PM Spec</span>
+                            <svg class="w-3.5 h-3.5 transform transition-transform" id="arrow-bookmyshow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL TIMELINE -->
+    <section id="experience" class="py-20 bg-slate-950">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-white">
+                    Experience <span class="bg-gradient-to-r from-brand-400 to-accent-teal bg-clip-text text-transparent">Timeline</span>
+                </h2>
+                <p class="mt-4 text-slate-400">
+                    A solid progression of analytical rigor: scaling business requirements to CRM system architecture and AI-driven workflows.
+                </p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32">
+                
+                <!-- Experience Item 1: EY -->
+                <div class="mb-12 relative pl-6 md:pl-8">
+                    <!-- Date badge for desk only, floating left -->
+                    <span class="hidden md:block absolute -left-40 top-1 text-right w-32 font-bold text-accent-teal">
+                        Jul 2024 - Present
+                    </span>
+                    <!-- Bullet dot -->
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent-teal border-4 border-slate-950"></span>
+                    
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                        <span class="md:hidden block text-xs font-bold text-accent-teal mb-2">Jul 2024 - Present</span>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-white">Functional Consultant (Business Analyst)</h3>
+                                <p class="text-sm text-slate-400">EY India • Bengaluru, India</p>
+                            </div>
+                            <span class="inline-self-start sm:inline px-3 py-1 bg-slate-800 text-slate-300 rounded-md text-xs border border-slate-700">Microsoft Dynamics 365</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
+                            <li>Gathered complex requirements from Sales, Support, and Customer Success stakeholders into clear functional specs for MS Dynamics 365 CRM.</li>
+                            <li>Created BPMN flow maps and Functional Requirement Documents (FRDs) directly scoping sprint cycles for software engineering.</li>
+                            <li>Maintained the rolling development backlog, drafting precise change requests outlining cross-module data dependencies and system risk analysis.</li>
+                            <li>Structured workflow validation rules and business logic mapping lead processing pathways into clear test scenarios used in UAT sign-offs.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2: Fincart -->
+                <div class="mb-12 relative pl-6 md:pl-8">
+                    <span class="hidden md:block absolute -left-40 top-1 text-right w-32 font-bold text-slate-400">
+                        Sep 2021 - Dec 2022
+                    </span>
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></span>
+                    
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                        <span class="md:hidden block text-xs font-bold text-slate-400 mb-2">Sep 2021 - Dec 2022</span>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-white">Senior Wealth Manager / Financial Planner</h3>
+                                <p class="text-sm text-slate-400">Fincart Financial Planners • Kolkata, India</p>
+                            </div>
+                            <span class="inline-self-start sm:inline px-3 py-1 bg-slate-800 text-slate-300 rounded-md text-xs border border-slate-700">Financial Markets</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Formulated comprehensive financial structures, tax mitigation architectures, and balanced portfolios based on risk-return metrics. Engineered automated financial calculations via advanced Excel tracking models.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3: Galaxy of Homes -->
+                <div class="mb-12 relative pl-6 md:pl-8">
+                    <span class="hidden md:block absolute -left-40 top-1 text-right w-32 font-bold text-slate-400">
+                        Oct 2020 - Sep 2021
+                    </span>
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></span>
+                    
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                        <span class="md:hidden block text-xs font-bold text-slate-400 mb-2">Oct 2020 - Sep 2021</span>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-white">Account Executive</h3>
+                                <p class="text-sm text-slate-400">Galaxy of Homes • Kolkata, India</p>
+                            </div>
+                            <span class="inline-self-start sm:inline px-3 py-1 bg-slate-800 text-slate-300 rounded-md text-xs border border-slate-700">Automation</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Led system requirement mapping to automate reporting across 200+ real estate investor portfolios. Designed and formulated Excel business dashboards, improving generation and processing turnaround time by approximately <strong>30%</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Experience Item 4: PwC -->
+                <div class="mb-12 relative pl-6 md:pl-8">
+                    <span class="hidden md:block absolute -left-40 top-1 text-right w-32 font-bold text-slate-400">
+                        Jan 2017 - Jan 2020
+                    </span>
+                    <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></span>
+                    
+                    <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                        <span class="md:hidden block text-xs font-bold text-slate-400 mb-2">Jan 2017 - Jan 2020</span>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                            <div>
+                                <h3 class="text-lg font-extrabold text-white">Associate 2 (Analyst)</h3>
+                                <p class="text-sm text-slate-400">PwC SDC Kolkata • Kolkata, India</p>
+                            </div>
+                            <span class="inline-self-start sm:inline px-3 py-1 bg-slate-800 text-slate-300 rounded-md text-xs border border-slate-700">Operations</span>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Managed billing calculations for international teams processing over 10,000+ records monthly using high-level Excel automation scripts. Recognized and promoted to Associate 2 in light of continuous 100% data fidelity.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AI ASSISTANT PORTFOLIO DEMO -->
+    <section id="ai-assistant" class="py-20 bg-slate-900 border-t border-b border-slate-800/80">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center space-x-1.5 bg-accent-teal/10 px-3 py-1 rounded-full text-accent-teal text-xs font-bold mb-4 border border-accent-teal/20">
+                    <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
+                    <span>APPLIED AI PORTFOLIO AGENT</span>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">
+                    Ask Shayan's <span class="bg-gradient-to-r from-brand-400 to-accent-teal bg-clip-text text-transparent">AI Assistant</span>
+                </h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+                    Instead of reading the entire resume, ask this custom mini conversational agent directly. It parses Shayan's experience data and skills in real-time.
+                </p>
+            </div>
+
+            <!-- Interactive Chat Assistant -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[500px]">
+                
+                <!-- Chat Window Header -->
+                <div class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-accent-teal flex items-center justify-center text-white font-extrabold text-sm">
+                            SS
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-white">Shayan's Bio Bot</span>
+                            <span class="text-xs text-accent-teal flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-accent-teal animate-ping"></span>
+                                Online & Ready
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Sample Questions Badge -->
+                    <span class="hidden sm:inline-block text-xs text-slate-500 font-mono bg-slate-950 px-2 py-1 rounded border border-slate-800">
+                        Gemini-Style Client Parser
+                    </span>
+                </div>
+
+                <!-- Chat History -->
+                <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-4 text-sm scroll-smooth">
+                    <!-- Bot initial message -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/30 text-brand-400 flex items-center justify-center font-extrabold text-xs shrink-0 mt-0.5">
+                            AI
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none p-3.5 max-w-[85%] text-slate-200 space-y-2">
+                            <p>Hello! I am Shayan's portfolio assistant. You can ask me anything about Shayan's career, data science backgrounds, or product frameworks. Here are a few things you can ask:</p>
+                            <div class="flex flex-wrap gap-2 pt-1">
+                                <button onclick="quickAsk('Why should I hire Shayan?')" class="text-xs px-2.5 py-1.5 bg-slate-950 border border-slate-800 hover:border-brand-500 rounded-lg text-slate-400 hover:text-white transition-all text-left">💡 Why hire Shayan?</button>
+                                <button onclick="quickAsk('Tell me about the Nykaa project')" class="text-xs px-2.5 py-1.5 bg-slate-950 border border-slate-800 hover:border-brand-500 rounded-lg text-slate-400 hover:text-white transition-all text-left">🧠 Nykaa Personalization</button>
+                                <button onclick="quickAsk('Explain his Data Science background')" class="text-xs px-2.5 py-1.5 bg-slate-950 border border-slate-800 hover:border-brand-500 rounded-lg text-slate-400 hover:text-white transition-all text-left">📊 Data Science Capstone</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator (hidden) -->
+                <div id="typing-indicator" class="hidden px-6 py-2 bg-slate-950/80 text-xs text-slate-500 italic flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 bg-brand-400 rounded-full animate-bounce"></span>
+                    <span class="w-1.5 h-1.5 bg-brand-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                    <span class="w-1.5 h-1.5 bg-brand-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                    Bot is thinking...
+                </div>
+
+                <!-- Chat Input form -->
+                <form id="chat-form" class="bg-slate-900 border-t border-slate-800 p-4 flex items-center gap-3">
+                    <input type="text" id="chat-input" placeholder="Ask about skills, work history, or certifications..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all placeholder:text-slate-600" required>
+                    <button type="submit" class="p-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl transition-all shadow-md shrink-0">
+                        <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9-2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADDITIONAL INFO: EDUCATION & CERTIFICATIONS -->
+    <section class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Left: Education -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                        Education History
+                    </h3>
+                    <div class="space-y-6">
+                        <!-- Edu Item 1 -->
+                        <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+                            <span class="text-xs font-semibold text-brand-400">Graduated 2023</span>
+                            <h4 class="text-base font-bold text-white mt-1">Postgraduate Program, Data Science</h4>
+                            <p class="text-sm text-slate-400">Praxis Business School, Kolkata</p>
+                        </div>
+                        <!-- Edu Item 2 -->
+                        <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+                            <span class="text-xs font-semibold text-slate-400">Graduated 2022</span>
+                            <h4 class="text-base font-bold text-white mt-1">PGDBM, Finance</h4>
+                            <p class="text-sm text-slate-400">NMIMS Global Access School for Continuing Education</p>
+                        </div>
+                        <!-- Edu Item 3 -->
+                        <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+                            <span class="text-xs font-semibold text-slate-400">Graduated 2015</span>
+                            <h4 class="text-base font-bold text-white mt-1">B.Com (Honours), Accounting & Finance</h4>
+                            <p class="text-sm text-slate-400">University of Calcutta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Certifications -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-accent-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                        Professional Certifications
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-accent-teal mt-2"></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">AI-First Product Management</h4>
+                                <p class="text-xs text-slate-500">Product Strategy</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-accent-teal mt-2"></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">AI For Everyone</h4>
+                                <p class="text-xs text-slate-500">DeepLearning.AI</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400 mt-2"></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Power Platform (PL-900)</h4>
+                                <p class="text-xs text-slate-500">Microsoft Certified</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400 mt-2"></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Dynamics 365 (MB-910)</h4>
+                                <p class="text-xs text-slate-500">CRM Fundamentals</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 mt-2"></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Research Analyst (XV)</h4>
+                                <p class="text-xs text-slate-500">NISM Certified</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-slate-500 mt-2"></span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Financial Markets</h4>
+                                <p class="text-xs text-slate-500">NCFM Fundamental Analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact" class="py-20 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-white">Let's Build Something <span class="bg-gradient-to-r from-brand-400 to-accent-teal bg-clip-text text-transparent">Smarter</span></h2>
+                <p class="mt-4 text-slate-400">Feel free to connect directly via email, phone, or fill out the fast contact form below.</p>
+            </div>
+
+            <!-- Custom Static Contact Form -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-xl">
+                <!-- Success Toast UI (hidden initially) -->
+                <div id="contact-success" class="hidden mb-6 p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 rounded-xl flex items-center gap-3">
+                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>Message received successfully! I will reach back to you shortly.</span>
+                </div>
+
+                <form id="portfolio-contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="contact-name" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Your Name</label>
+                            <input type="text" id="contact-name" placeholder="John Doe" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all" required>
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Email Address</label>
+                            <input type="email" id="contact-email" placeholder="john@example.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="contact-subject" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Role / Opportunity</label>
+                        <select id="contact-subject" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
+                            <option value="AI / Data PM Role">Associate AI / Data Product Manager Role</option>
+                            <option value="Consulting / BA Role">Senior Functional Consultant / BA Role</option>
+                            <option value="Consultancy or Project">Independent Project / Advisory</option>
+                            <option value="General Connect">General Professional Connection</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="contact-message" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Your Message</label>
+                        <textarea id="contact-message" rows="4" placeholder="Hello Shayan, I saw your portfolio and wanted to discuss an opportunity..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all" required></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-500 hover:to-brand-600 text-white font-semibold rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
+                        Submit Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-12 text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p>© 2026 MD Shayan Shafique. All rights reserved.</p>
+            <div class="flex space-x-6">
+                <a href="mailto:shafiqueshayan@gmail.com" class="hover:text-white transition-colors">Email</a>
+                <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://github.com" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="tel:+918981137839" class="hover:text-white transition-colors">Phone</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE PORTFOLIO ENGINE (JS) -->
+    <script>
+        // MOBILE MENU TOGGLE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // THEME TOGGLE FUNCTIONALITY
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            // Switch icons
+            if (isDark) {
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+                document.body.classList.replace('bg-white', 'bg-slate-900');
+                document.body.classList.replace('text-slate-900', 'text-slate-100');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+                document.body.classList.replace('bg-slate-900', 'bg-white');
+                document.body.classList.replace('text-slate-100', 'text-slate-900');
+            }
+        });
+
+        // TOGGLE DETAILED PM CASE STUDY SPEC
+        function toggleSpec(projId) {
+            const specElement = document.getElementById(`spec-${projId}`);
+            const arrowElement = document.getElementById(`arrow-${projId}`);
+            const buttonElement = document.getElementById(`btn-${projId}`);
+
+            if (specElement.classList.contains('hidden')) {
+                specElement.classList.remove('hidden');
+                arrowElement.classList.add('rotate-180');
+                buttonElement.classList.add('border-brand-500', 'text-white', 'bg-brand-900/10');
+            } else {
+                specElement.classList.add('hidden');
+                arrowElement.classList.remove('rotate-180');
+                buttonElement.classList.remove('border-brand-500', 'text-white', 'bg-brand-900/10');
+            }
+        }
+
+        // CONTACT FORM CLIENT SIMULATION
+        const contactForm = document.getElementById('portfolio-contact-form');
+        const successToast = document.getElementById('contact-success');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Client side feedback
+            successToast.classList.remove('hidden');
+            contactForm.reset();
+            
+            // Auto hide toast after 6 seconds
+            setTimeout(() => {
+                successToast.classList.add('hidden');
+            }, 6000);
+        });
+
+        // "SHAYAN AI" CHAT BOT LOGIC
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        // Shayan's Resume knowledgebase
+        const qaData = [
+            {
+                keywords: ['why', 'hire', 'about', 'summary', 'introduce', 'shayan'],
+                answer: "You should hire Shayan because of his rare combination of **8 years of analytical BA rigor** coupled with a rigorous **Data Science postgraduate background** (Praxis). He has spent the last years implementing requirements inside enterprise MS Dynamics 365 CRM, scoping functional requirements, and writing PRDs for modern applications."
+            },
+            {
+                keywords: ['nykaa', 'personalization', 'recommend'],
+                answer: "In his **Nykaa Personalization strategy project**, Shayan structured a plan utilizing Collaborative Filtering recommendation systems and intent clustering. This focused on increasing conversion rates and average order values by making product discovery seamless."
+            },
+            {
+                keywords: ['zepto', 'segmentation', 'dark store'],
+                answer: "In the **Zepto Segmentation case study**, Shayan applied the Jobs-to-be-Done (JTBD) framework and customer journey mapping. He pinpointed significant friction in 'emergency replenishment' user flows and proposed targeted quick-actions to reduce cart drop-offs."
+            },
+            {
+                keywords: ['capstone', 'adversarial', 'attack', 'defense', 'praxis'],
+                answer: "Shayan's **Data Science Capstone** tackled adversarial defense on deep learning classifiers using Knowledge Distillation. The project **ranked #1 among all teams** at Praxis Business School, showcasing his technical machine learning capability."
+            },
+            {
+                keywords: ['ey', 'consultant', 'dynamics', 'crm', 'microsoft'],
+                answer: "Currently at **EY India** as a Functional Consultant, Shayan handles complex stakeholder management for MS Dynamics 365. He authors FRDs, defines lead workflow validations, manages enhancement backlogs, and leads UAT cycles."
+            },
+            {
+                keywords: ['skills', 'tools', 'languages', 'python', 'sql'],
+                answer: "Shayan's stack includes:\n- **PM Frameworks**: PRDs, User Story Mapping, MoSCoW/RICE prioritization.\n- **AI & Data**: Python, SQL, Prompt Engineering, Power BI, ML classifiers.\n- **Tech**: Microsoft Power Platform, Azure DevOps, Postman API Testing."
+            },
+            {
+                keywords: ['contact', 'email', 'phone', 'location'],
+                answer: "You can reach Shayan directly:\n- **Email**: shafiqueshayan@gmail.com\n- **Phone**: +91 8981137839\n- **Location**: Bengaluru, India"
+            }
+        ];
+
+        // Process message
+        function processUserQuery(query) {
+            const cleanQuery = query.toLowerCase();
+            let match = qaData.find(item => item.keywords.some(keyword => cleanQuery.includes(keyword)));
+
+            if (match) {
+                return match.answer;
+            } else {
+                return "Interesting question! Shayan has a strong background in AI strategy, CRM consulting at EY, and Data Science. Feel free to reach him directly at **shafiqueshayan@gmail.com** or ask me about his 'EY experience', 'Nykaa project', 'Skills', or 'Why hire him'!";
+            }
+        }
+
+        // Trigger bot conversation
+        function handleUserSubmit(messageText) {
+            if (!messageText.trim()) return;
+
+            // Add user message to UI
+            appendMessage(messageText, 'user');
+            chatInput.value = '';
+
+            // Show typing indicator
+            typingIndicator.classList.remove('hidden');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Simulate AI think delay
+            setTimeout(() => {
+                typingIndicator.classList.add('hidden');
+                const botReply = processUserQuery(messageText);
+                appendMessage(botReply, 'bot');
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+        }
+
+        // Quick Suggestion clicks
+        function quickAsk(text) {
+            handleUserSubmit(text);
+        }
+
+        // Event listener for chat form
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            handleUserSubmit(chatInput.value);
+        });
+
+        // Appends single bubble to chat history
+        function appendMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'flex items-start gap-3';
+            
+            if (sender === 'user') {
+                msgDiv.innerHTML = `
+                    <div class="flex-1"></div>
+                    <div class="bg-brand-600 text-white rounded-2xl rounded-tr-none p-3 max-w-[85%]">
+                        <p>${text.replace(/\n/g, '<br>')}</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center font-extrabold text-xs shrink-0 mt-0.5">
+                        ME
+                    </div>
+                `;
+            } else {
+                msgDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/30 text-brand-400 flex items-center justify-center font-extrabold text-xs shrink-0 mt-0.5">
+                        AI
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-none p-3.5 max-w-[85%] text-slate-200">
+                        <p>${text.replace(/\n/g, '<br>')}</p>
+                    </div>
+                `;
+            }
+            chatMessages.appendChild(msgDiv);
+        }
+    </script>
+</body>
+</html>
